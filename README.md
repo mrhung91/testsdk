@@ -4,11 +4,12 @@
 
 
 ###Contents
-[I. REGISTER](#1-register)
+[I. Register](#1-register)
 
-[II. AUTHENTICATION](#2-authentication)
+[II. Authentication](#2-authentication)
 
-[III. PAYMENT](#3-payment)
+[III. Payment](#3-payment)
+
 
 ### [I. REGISTER](#header1)
 
