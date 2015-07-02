@@ -11,7 +11,7 @@
 
 [III. Mind map and Functions](#a)
     
-    [a) Authentication](#a)
+    [a. Authentication][a]
     
     [b) Payment](#a)
     
