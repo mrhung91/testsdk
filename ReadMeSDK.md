@@ -149,18 +149,20 @@ An Android application cannot have multiple receivers which have the same intent
 
 ####Initialize SDK
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
+
 **Sample code:**
-    
-    ```java
+
+    ```
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    // Add this line to your code
-        CuuChauSdk.sdkInitialize(this);
+    	// Add this line to your code
+    	CuuChauSdk.sdkInitialize(this);
     }
     ```
 
 ####Add authentication function
-To show authentication function, add this script to your main activity, in onCreate method
+To show authentication function, add this script to your main activity, in **onCreate** method
+
 **Sample code:**
 
     ```java
@@ -226,7 +228,7 @@ To show payment function, add this script to payment button click event:
 
 **Sample code:**
     
-    ```
+    ```java
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnCharge){
