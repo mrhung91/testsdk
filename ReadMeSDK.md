@@ -189,7 +189,7 @@ To show authentication function, add this script to your main activity, in **onC
 #####Methods of AuthCallback:
 
 | Methods        | Parameters           | Description  |
-| ------------- |:-------------:| -----:|
+|:------------- |:-------------|:-----|
 | onLoginSuccess      | JSONObject | Called after user login successfully |
 | onRegisterSuccess      | JSONObject      |   Called after user create new game account |
 | onLogout |       |  Called when user sign out   |
@@ -198,7 +198,7 @@ To show authentication function, add this script to your main activity, in **onC
 
 #####User Properties:
 |Properties | Type | Description |
-|---|:---:|---:|
+|:---|:---|:---|
 |status|String|status = 1 (successful), otherwise is not successful|
 |message| String |
 |username| String |
@@ -246,7 +246,7 @@ To show payment function, add this script to payment button click event:
 #####PaymentCallback Methods:
 
 |Methods|Parameters|Description|
-|---|:---:|---:|
+|:---|:---|:---|
 |onSuccess| |Called after recharging success|
 
 ####Add profile function
