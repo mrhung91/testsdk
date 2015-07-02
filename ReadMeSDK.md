@@ -92,8 +92,8 @@ Please make sure development environment and your game meet the following requir
 - Using authentication function by my 9Chau system.
 - Using real Telo card for testing payment function.
 
-### [6. How to integrate SDK](#header1)
 
+### [6. How to integrate SDK](#header1)
 
 #### Import 9chauSDK 
 1.	On Android Studio, select File menu -> New -> New Module -> Choose Module Type is Phone and Tablet Application, choose More Modules is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing 9chauSDK  and click Finish button.
@@ -109,10 +109,11 @@ Please make sure development environment and your game meet the following requir
     	compile 'com.google.android.gms:play-services:7.5.0'
     }
     ```
+
 ####Config project
 Add exact this meta-data into your **AndroidManifest.xml**:
 
-    ```
+    ```java
     <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
     ```
 
@@ -121,7 +122,7 @@ An Android application cannot have multiple receivers which have the same intent
 
 - Add this receiver into your AndroidManifest.xml
     
-    ```
+    ```java
     <receiver
         android:name="{your_package_name}.tracking.Install"
         android:exported="true" >
@@ -133,7 +134,7 @@ An Android application cannot have multiple receivers which have the same intent
     
 - Create package name is **tracking**, then create **Install.java** in this package:
     
-    ```
+    ```java
     public class Install extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -146,5 +147,115 @@ An Android application cannot have multiple receivers which have the same intent
     }
     ```
 
+####Initialize SDK
+Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
+**Sample code:**
+    
+    ```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    // Add this line to your code
+        CuuChauSdk.sdkInitialize(this);
+    }
+    ```
+
+####Add authentication function
+To show authentication function, add this script to your main activity, in onCreate method
+**Sample code:**
+
+    ```java
+    CuuChauSdk.showAuthPanel(new AuthCallback() {
+        @Override
+        protected void onLoginSuccess(JSONObject user) {
+        	// your code here
+        }
+    
+        @Override
+        protected void onRegisterSuccess(JSONObject user) {
+    	    // your code here
+        }
+    
+        @Override
+        protected void onLogout() {
+        	// your code here
+        }
+    });
+    ```
 
 
+
+#####Methods of AuthCallback:
+
+| Methods        | Parameters           | Description  |
+| ------------- |:-------------:| -----:|
+| onLoginSuccess      | JSONObject | Called after user login successfully |
+| onRegisterSuccess      | JSONObject      |   Called after user create new game account |
+| onLogout |       |  Called when user sign out   |
+
+
+
+#####User Properties:
+|Properties | Type | Description |
+|---|:---:|---:|
+|status|String|status = 1 (successful), otherwise is not successful|
+|message| String |
+|username| String |
+|game_code| String |
+|token|	String |
+|error_code| String	|
+|session_key| String |
+
+If you want to get username property, you can access to user object by use this script: user.getString("username");
+
+
+####Add payment function
+
+
+To show payment function, add this script to payment button click event:
+    
+    ```java
+    CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
+        @Override
+        public void onSuccess() {
+	        // your code here
+        }
+    });
+    ```
+    
+*Note: type of gameOrder parameter is json string.*
+
+**Sample code:**
+    
+    ```
+    @Override
+    public void onClick(View v) {
+        if(v.getId()== R.id.btnCharge){
+            CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
+                @Override
+                public void onSuccess() {
+    		        // your code here
+                }
+            });
+        }
+    }
+    ```
+
+
+#####PaymentCallback Methods:
+
+|Methods|Parameters|Description|
+|---|:---:|---:|
+|onSuccess| |Called after recharging success|
+
+####Add profile function
+To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
+**Sample code:**
+
+    ```java
+    @Override
+    public void onClick(View v) {
+        if(v.getId()== R.id.btnProfile){
+            CuuChauSdk.showProfilePanel();
+        }
+    }
+    ```
