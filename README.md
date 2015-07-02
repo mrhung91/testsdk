@@ -15,9 +15,9 @@
 In case user register a new game account (1), when user submit, 9chau SDK send information (username, password) to 9chau server (1.1). If that information is valid, 9chau server send a register request to game server to verify (1.1.1).
 
 ***a) Request (1.1.1):***
-- Send request: ** 9CHAU server** 
-- Receive request: ** PARTNER server** 
-- URL: **http://partner_register_url** 
+- Send request: **9CHAU server** 
+- Receive request: **PARTNER server**
+- URL: **http://partner_register_url**
 - Method: **POST**
 - Params:
     1. username
@@ -56,9 +56,9 @@ After user submit login information (1), 9chau SDK send user’s information (us
 
 ***a) Request(1.1.1):***
 - Send request: **9CHAU server** 
-- Receive request: ** PARTNER server** 
-- URL: ** http://partner_authen_url** 
-- Method: ** POST** 
+- Receive request: **PARTNER server**
+- URL: **http://partner_authen_url**
+- Method: **POST**
 - Params:
     1. username
     2. game_code
