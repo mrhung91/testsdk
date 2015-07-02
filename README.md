@@ -6,125 +6,87 @@
 ###Contents
 [1. REGISTER](#1-register)
 
-[2. AUTHENTICATION](#1-authentication)
+[2. AUTHENTICATION](#2-authentication)
 
 [3. PAYMENT](#1-payment)
 
+### [1. Import Appota SDK4](#1-register)
+
+In case user register a new game account (1), when user submit, 9chau SDK send information (username, password) to 9chau server (1.1). If that information is valid, 9chau server send a register request to game server to verify (1.1.1).
+
+***a) Request (1.1.1):***
+- Send request: 9CHAU server
+- Receive request: PARTNER server
+- URL: **http://partner_register_url** 
+- Method: **POST**
+- Params:
+    1. username
+    2. game_code
+    3. token
+- *token rule is md5(9chau_sdk_{game_code}_{username})*
+ 
+After verify data, game server send a response to 9chau server (1.1.2):
+
+***b) Response (1.1.2):***
+- Type: **json**
+- Format result:
+        ```java
+        [{
+            "status": "",
+            "message": "",
+            "username": "",
+            "game_code": "",
+            "token": "",
+            "error_code": "",
+            "session_key": "",
+        }]
+        ```
+    - **Status** = 1 (successful), otherwise is not successful
+    - **Message** is detail of **status**
+    - **Username** (duplicate with **username** 9chau server sent)
+    - **Game_code** (duplicate with **game_code** 9chau server sent)
+    - **Token** (duplicate with **token** 9chau server sent)
+    - **Error_code** (created from game server)
+    - **Session_key** (create from game server)
 
 
-## [1. Import Appota SDK4](#header1)
+### [2. AUTHENTICATION](#2-authentication)
+After user submit login information (1), 9chau SDK send user’s information (username, password) to 9chau server (1.1). 9chau server verify and send to game server a request (1.1.1).
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+***a) Request(1.1.1):***
+- Send request: 9CHAU server 
+- Receive request: PARTNER server
+- URL: http://partner_authen_url 
+- Method: POST
+- Params:
+    1. username
+    2. game_code
+    3. token
+- *token rule is md5(9chau_sdk_{game_code}_{username})*
 
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
+When received the request, game server proceed received data. If allow user to login game, game server send a response to 9chau server with information as below (1.1.2):
 
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site] [1]:
+***b) Response (1.1.2):***
+- Type: **json**
+- Format result: 
+    ```java
+    [{
+        "status": "",
+        "message": "",
+        "username": "",
+        "game_code": "",
+        "token": "",
+        "error_code": "",
+        "session_key": "",
+    }]
+    ```
+    - **Status** = 1 (successful), otherwise is not successful
+    - **Message** is detail of **status**
+    - **Username** (duplicate with **username** 9chau server sent)
+    - **Game_code** (duplicate with **game_code** 9chau server sent)
+    - **Token** (duplicate with **token** 9chau server sent)
+    - **Error_code** (created from game server)
+    - **Session_key** (create from game server)
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+After receiving the response from partner server, 9chau server will compare data that 9chau server sent and that game server sent. If match, 9chau server response to 9chau SDK and 9chau SDK will allow user to login.
 
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
-
-### Version
-3.0.0
-
-### Tech
-
-Dillinger uses a number of open source projects to work properly:
-
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [Marked] - a super fast port of Markdown to JavaScript
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [keymaster.js] - awesome keyboard handler lib by [@thomasfuchs]
-* [jQuery] - duh
-
-### Installation
-
-```sh
-$ git clone [git-repo-url] dillinger
-$ cd dillinger
-$ npm i -d
-$ mkdir -p public/files/{md,html,pdf}
-$ gulp build --prod
-$ NODE_ENV=production node app
-```
-
-### Plugins
-
-Dillinger is currently extended with the following plugins
-
-* Dropbox
-* Github
-* Google Drive
-* OneDrive
-
-Readmes, how to use them in your own application can be found here:
-
-* plugins/dropbox/README.md
-* plugins/github/README.md
-* plugins/googledrive/README.md
-* plugins/onedrive/README.md
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-```sh
-$ node app
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma start
-```
-
-### Todo's
-
-Write Tests
-Github saving overhaul
-Code Commenting
-Night Mode
-
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
-
-[john gruber]:http://daringfireball.net/
-[@thomasfuchs]:http://twitter.com/thomasfuchs
-[1]:http://daringfireball.net/projects/markdown/
-[marked]:https://github.com/chjj/marked
-[Ace Editor]:http://ace.ajax.org
-[node.js]:http://nodejs.org
-[Twitter Bootstrap]:http://twitter.github.com/bootstrap/
-[keymaster.js]:https://github.com/madrobby/keymaster
-[jQuery]:http://jquery.com
-[@tjholowaychuk]:http://twitter.com/tjholowaychuk
-[express]:http://expressjs.com
-[AngularJS]:http://angularjs.org
-[Gulp]:http://gulpjs.com
