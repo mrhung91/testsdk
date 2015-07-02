@@ -10,7 +10,7 @@
 
 [III. PAYMENT](#3-payment)
 
-### [I. REGISTER](#1-register)
+### [I. REGISTER](#header1)
 
 In case user register a new game account (1), when user submit, 9chau SDK send information (username, password) to 9chau server (1.1). If that information is valid, 9chau server send a register request to game server to verify (1.1.1).
 
@@ -51,7 +51,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
     - **session_key** (create from game server)
 
 
-### [II. AUTHENTICATION](#2-authentication)
+### [II. AUTHENTICATION](#header2)
 After user submit login information (1), 9chau SDK send user’s information (username, password) to 9chau server (1.1). 9chau server verify and send to game server a request (1.1.1).
 
 ***a) Request(1.1.1):***
@@ -94,7 +94,7 @@ When received the request, game server proceed received data. If allow user to l
 After receiving the response from partner server, 9chau server will compare data that 9chau server sent and that game server sent. If match, 9chau server response to 9chau SDK and 9chau SDK will allow user to login.
 
 
-###[III. PAYMENT](#3-payment)
+###[III. PAYMENT](#header3)
 
 When user request to recharge (1), Game application call to 9Chau SDK with game_order parameter (1.1).
 
