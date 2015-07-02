@@ -30,7 +30,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
 ***b) Response (1.1.2):***
 - Type: **json**
 - Format result:
-        ```java
+        ```
         [{
             "status": "",
             "message": "",
