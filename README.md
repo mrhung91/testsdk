@@ -1,16 +1,16 @@
-# 9Chau SDK integration (version 1)
+# 9Chau SDK integration
 ##### CONNECTION ON SERVER SIDE GUIDE
 
 
 
 ###Contents
-[1. REGISTER](#1-register)
+[I. REGISTER](#1-register)
 
-[2. AUTHENTICATION](#2-authentication)
+[II. AUTHENTICATION](#2-authentication)
 
-[3. PAYMENT](#1-payment)
+[II. PAYMENT](#1-payment)
 
-### [1. Import Appota SDK4](#1-register)
+### [I. REGISTER](#1-register)
 
 In case user register a new game account (1), when user submit, 9chau SDK send information (username, password) to 9chau server (1.1). If that information is valid, 9chau server send a register request to game server to verify (1.1.1).
 
@@ -30,6 +30,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
 ***b) Response (1.1.2):***
 - Type: **json**
 - Format result:
+
         ```
         [{
             "status": "",
@@ -41,6 +42,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
             "session_key": "",
         }]
         ```
+
     - **Status** = 1 (successful), otherwise is not successful
     - **Message** is detail of **status**
     - **Username** (duplicate with **username** 9chau server sent)
@@ -50,7 +52,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
     - **Session_key** (create from game server)
 
 
-### [2. AUTHENTICATION](#2-authentication)
+### [II. AUTHENTICATION](#2-authentication)
 After user submit login information (1), 9chau SDK send user’s information (username, password) to 9chau server (1.1). 9chau server verify and send to game server a request (1.1.1).
 
 ***a) Request(1.1.1):***
@@ -69,7 +71,8 @@ When received the request, game server proceed received data. If allow user to l
 ***b) Response (1.1.2):***
 - Type: **json**
 - Format result: 
-    ```java
+
+    ```
     [{
         "status": "",
         "message": "",
@@ -80,6 +83,7 @@ When received the request, game server proceed received data. If allow user to l
         "session_key": "",
     }]
     ```
+
     - **Status** = 1 (successful), otherwise is not successful
     - **Message** is detail of **status**
     - **Username** (duplicate with **username** 9chau server sent)
@@ -89,4 +93,8 @@ When received the request, game server proceed received data. If allow user to l
     - **Session_key** (create from game server)
 
 After receiving the response from partner server, 9chau server will compare data that 9chau server sent and that game server sent. If match, 9chau server response to 9chau SDK and 9chau SDK will allow user to login.
+
+
+
+
 
