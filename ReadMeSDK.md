@@ -80,7 +80,7 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 ### [4. Requirements](#header1)
 Please make sure development environment and your game meet the following requirements before integrating SDK.
 
-####Development Environment
+#####[4.1. Development Environment](#header1)
 - For Android development Platform Version 4.0 / API Level 14 is the minimum supported platform.
 - You also can use any Android development tool for integrating SDK. But using **Android Studio Tool** (1.2.0 is current version) is the best. 
 
@@ -108,7 +108,7 @@ Please make sure development environment and your game meet the following requir
 ### [6. How to integrate SDK](#header1)
 
 #### Import 9chauSDK 
-1.	On Android Studio, select File menu -> New -> New Module -> Choose Module Type is Phone and Tablet Application, choose More Modules is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing 9chauSDK  and click Finish button.
+1.	On Android Studio, select File menu -> New -> New Module -> Choose Module Type is Phone and Tablet Application, choose More Modules is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
 ```java
@@ -153,7 +153,7 @@ An Android application cannot have multiple receivers which have the same intent
             com.cuuchau.sdk9chau.tracking.InstallationReceiver installationReceiver = new com.cuuchau.sdk9chau.tracking.InstallationReceiver();
             installationReceiver.onReceive(context,intent);
 
-    	// your code here
+    		// your code here
 
         }
     }
@@ -161,7 +161,7 @@ An Android application cannot have multiple receivers which have the same intent
 
 #### Initialize SDK
 
-	Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
+Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
 **Sample code:**
 
@@ -221,7 +221,7 @@ An Android application cannot have multiple receivers which have the same intent
 |error_code| String	|
 |session_key| String |
 
-If you want to get username property, you can access to user object by use this script: user.getString("username");
+If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
 
 ####Add payment function
@@ -263,6 +263,7 @@ To show payment function, add this script to payment button click event:
 
 ####Add profile function
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
+
 **Sample code:**
 
 ```java
