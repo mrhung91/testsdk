@@ -69,10 +69,9 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 
 
 
-    
-    
-    
+![Alt text](http://i.imgur.com/L0SBnud.png "9Chau SDK Mind Map")
 
+*9Chau SDK Mind Map*
 
 
 
@@ -280,3 +279,4 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
         }
     }
 ```
+
