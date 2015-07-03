@@ -56,14 +56,14 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 9Chau SKD contain tree major components: Authentication, Payment, Profile Management.
 
 <dl>
-	#####[3.1. Authentication](#header1): Before playing game, user must pass by SDK authentication.
+#####[3.1. Authentication](#header1): Before playing game, user must pass by SDK authentication.
 	
 	<dd>a) If user want to play game immediately, they can choose Play now function. SDK create a random UID for this device, this UID is unique ID on this device. Each device only create one UID and user still use this UID for each other play time.</dd>
 	
 	<dd>b) If user has Facebook account, they can choose Login by Facebook function. SDK syncs Facebook ID from Facebook App to the game.</dd>
 	<dd>c) If user want to use 9Chau account, they can register and login by 9Chau login function. After that, they must create game account or choose account they created before.</dd>
 
-	##### [3.2. Payment](#header1):
+##### [3.2. Payment](#header1):
 	<dd>a) Telco Card Payment: User must enter completely and accurately serial code and pin code when recharging to game.</dd>
 	<dd>b) C Payment: C is money unit in 9Chau system, user can use C for recharging to game.</dd>
 	<dd>c) Google wallet: recharging by google payment service</dd>
