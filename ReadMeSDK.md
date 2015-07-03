@@ -111,7 +111,7 @@ Please make sure development environment and your game meet the following requir
 1.	On Android Studio, select File menu -> New -> New Module -> Choose Module Type is Phone and Tablet Application, choose More Modules is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing 9chauSDK  and click Finish button.
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
-    ```java
+```java
     dependencies {
         compile fileTree(dir: 'libs', include: ['*.jar'])
         compile 'com.android.support:appcompat-v7:22.1.1'
@@ -120,14 +120,14 @@ Please make sure development environment and your game meet the following requir
         compile 'com.mcxiaoke.volley:library:1.0.+'
     	compile 'com.google.android.gms:play-services:7.5.0'
     }
-    ```
+```
 
 ####Config project
 Add exact this meta-data into your **AndroidManifest.xml**:
 
-    ```java
+```java
     <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
-    ```
+```
 
 ####Add new BroadcastReceiver
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one **INSTALL_REFFERER** receiver, you must make the proxy receiver like this:
@@ -240,7 +240,8 @@ To show payment function, add this script to payment button click event:
 *Note: type of gameOrder parameter is json string.*
 
 **Sample code:**
-    
+
+```java
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnCharge){
@@ -252,6 +253,7 @@ To show payment function, add this script to payment button click event:
             });
         }
     }
+```
 
 #####PaymentCallback Methods:
 
