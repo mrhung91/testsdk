@@ -26,9 +26,11 @@ In case user register a new game account (1), when user submit, 9chau SDK send i
 - URL: **http://partner_register_url**
 - Method: **POST**
 - Params:
-    1. username
-    2. game_code
-    3. token
+<dl>
+<dd>1. username</dd>
+<dd>2. game_code</dd>
+<dd>3. token</dd>
+</dl>
 - *token rule is md5(9chau_sdk_{game_code}_{username})*
  
 After verify data, game server send a response to 9chau server (1.1.2):
@@ -71,9 +73,11 @@ After user submit login information (1), 9chau SDK send user’s information (us
 - URL: **http://partner_authen_url**
 - Method: **POST**
 - Params:
-    1. username
-    2. game_code
-    3. token
+<dl>
+<dd>1. username</dd>
+<dd>2. game_code</dd>
+<dd>3. token</dd>
+</dl>
 - *token rule is md5(9chau_sdk_{game_code}_{username})*
 
 When received the request, game server proceed received data. If allow user to login game, game server send a response to 9chau server with information as below (1.1.2):
@@ -120,17 +124,19 @@ After user enter card information (1.1). 9chau SDK send that information to 9cha
 - URL: **http://partner_payment_url** 
 - Method: **POST**
 - Params:
-    1. **username** (game account)
-    2. **game_code** (unique code of the game)
-    3. **trans_id** ( transaction id )
-    4. **telco** (name of card provider)
-    5. **serial**
-    6. **pincode**
-    7. **money** (Real amount user recharges)
-    8. **currency** (money unit)
-    9. **game_money** (Amount is received in game server. It is the amount to be converted at the rate of VND and KNB)
-    10. **token** (token rule is md5(9chau_sdk_{serial}_{pincode}))
-    11. **game_order** (game order code is sent from game server)
+<dl>
+<dd>1. **username** (game account)</dd>
+<dd>2. **game_code** (unique code of the game)</dd>
+<dd>3. **trans_id** ( transaction id )</dd>
+<dd>4. **telco** (name of card provider)</dd>
+<dd>5. **serial**</dd>
+<dd>6. **pincode**</dd>
+<dd>7. **money** (Real amount user recharges)</dd>
+<dd>8. **currency** (money unit)</dd>
+<dd>9. **game_money** (Amount is received in game server. It is the amount to be converted at the rate of VND and KNB)</dd>
+<dd>10. **token** (token rule is md5(9chau_sdk_{serial}_{pincode}))</dd>
+<dd>11. **game_order** (game order code is sent from game server)</dd>
+</dl>
 
 After receiving the request, game server proceed that data and send a response to 9chau server (2.3), details as below:
 
