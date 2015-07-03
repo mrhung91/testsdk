@@ -73,20 +73,6 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
     
     
     
-    
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-
-
-
 
 
 
@@ -99,12 +85,24 @@ Please make sure development environment and your game meet the following requir
 - You also can use any Android development tool for integrating SDK. But using **Android Studio Tool** (1.2.0 is current version) is the best. 
 
 
+
+    
+    
+    
+
+
 ### [5. Important Notes](#header1)
 
 - Only using exact SDK for each game. If using another SDK, we do not guarantee that data returns correctly.
 - Please note that the data accumulated during SDK testing is accumulated as actual measurement data.
 - Using authentication function by my 9Chau system.
 - Using real Telo card for testing payment function.
+
+
+
+    
+    
+    
 
 
 ### [6. How to integrate SDK](#header1)
@@ -136,7 +134,7 @@ An Android application cannot have multiple receivers which have the same intent
 
 - Add this receiver into your AndroidManifest.xml
     
-    ```java
+```java
     <receiver
         android:name="{your_package_name}.tracking.Install"
         android:exported="true" >
@@ -144,11 +142,11 @@ An Android application cannot have multiple receivers which have the same intent
             <action android:name="com.android.vending.INSTALL_REFERRER" />
         </intent-filter>
     </receiver>
-    ```
+```
     
 - Create package name is **tracking**, then create **Install.java** in this package:
     
-    ```java
+```java
     public class Install extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -159,7 +157,7 @@ An Android application cannot have multiple receivers which have the same intent
 
         }
     }
-    ```
+```
 
 #### Initialize SDK
 
@@ -167,18 +165,21 @@ An Android application cannot have multiple receivers which have the same intent
 
 **Sample code:**
 
+```java
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// Add this line to your code
 		CuuChauSdk.sdkInitialize(this);
 	}
-	
+```
+
 ####Add authentication function
 
 	To show authentication function, add this script to your main activity, in **onCreate** method
 
 **Sample code:**
 
+```java
     CuuChauSdk.showAuthPanel(new AuthCallback() {
         @Override
         protected void onLoginSuccess(JSONObject user) {
@@ -195,7 +196,7 @@ An Android application cannot have multiple receivers which have the same intent
         	//your code here
         }
     });
-
+```
 
 
 
@@ -226,13 +227,15 @@ If you want to get username property, you can access to user object by use this 
 ####Add payment function
 
 To show payment function, add this script to payment button click event:
-    
+
+```java
     CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
         @Override
         public void onSuccess() {
 	        // your code here
         }
     });
+```
 
 *Note: type of gameOrder parameter is json string.*
 
@@ -260,9 +263,11 @@ To show payment function, add this script to payment button click event:
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 **Sample code:**
 
+```java
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnProfile){
             CuuChauSdk.showProfilePanel();
         }
     }
+```
