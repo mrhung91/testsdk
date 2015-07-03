@@ -161,42 +161,41 @@ An Android application cannot have multiple receivers which have the same intent
     }
     ```
 
-####Initialize SDK
-Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
+#### Initialize SDK
+
+	Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
 **Sample code:**
 
-    ```
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-    	// Add this line to your code
-    	CuuChauSdk.sdkInitialize(this);
-    }
-    ```
-
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// Add this line to your code
+		CuuChauSdk.sdkInitialize(this);
+	}
+	
 ####Add authentication function
-To show authentication function, add this script to your main activity, in **onCreate** method
+
+	To show authentication function, add this script to your main activity, in **onCreate** method
 
 **Sample code:**
 
-    ```java
     CuuChauSdk.showAuthPanel(new AuthCallback() {
         @Override
         protected void onLoginSuccess(JSONObject user) {
-        	// your code here
+        	//your code here
         }
     
         @Override
         protected void onRegisterSuccess(JSONObject user) {
-    	    // your code here
+    	    //your code here
         }
     
         @Override
         protected void onLogout() {
-        	// your code here
+        	//your code here
         }
     });
-    ```
+
 
 
 
@@ -226,23 +225,19 @@ If you want to get username property, you can access to user object by use this 
 
 ####Add payment function
 
-
 To show payment function, add this script to payment button click event:
     
-    ```java
     CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
         @Override
         public void onSuccess() {
 	        // your code here
         }
     });
-    ```
-    
+
 *Note: type of gameOrder parameter is json string.*
 
 **Sample code:**
     
-    ```java
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnCharge){
@@ -254,8 +249,6 @@ To show payment function, add this script to payment button click event:
             });
         }
     }
-    ```
-
 
 #####PaymentCallback Methods:
 
@@ -267,11 +260,9 @@ To show payment function, add this script to payment button click event:
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 **Sample code:**
 
-    ```java
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnProfile){
             CuuChauSdk.showProfilePanel();
         }
     }
-    ```
