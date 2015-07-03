@@ -13,6 +13,11 @@
 
 ### [I. REGISTER](#header1)
 
+![Alt text](http://i.imgur.com/Yno6fyO.png "I.1 Register sequence diagram")
+
+I.1 Register sequence diagram
+
+
 In case user register a new game account (1), when user submit, 9chau SDK send information (username, password) to 9chau server (1.1). If that information is valid, 9chau server send a register request to game server to verify (1.1.1).
 
 ***a) Request (1.1.1):***
@@ -53,6 +58,11 @@ After verify data, game server send a response to 9chau server (1.1.2):
 
 
 ### [II. AUTHENTICATION](#header2)
+
+![Alt text](http://i.imgur.com/6puCuRq.png "II.1 Authentication sequence diagram")
+
+II.1 Authentication sequence diagram
+
 After user submit login information (1), 9chau SDK send user’s information (username, password) to 9chau server (1.1). 9chau server verify and send to game server a request (1.1.1).
 
 ***a) Request(1.1.1):***
@@ -96,6 +106,10 @@ After receiving the response from partner server, 9chau server will compare data
 
 
 ###[III. PAYMENT](#header3)
+
+![Alt text](http://i.imgur.com/AiROiPl.png "III.1 Payment sequence diagram")
+
+III.1 Payment sequence diagram
 
 When user request to recharge (1), Game application call to 9Chau SDK with game_order parameter (1.1).
 
