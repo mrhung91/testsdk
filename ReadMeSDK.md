@@ -58,16 +58,14 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 
 ##### [3.1. Authentication](#header1): Before playing game, user must pass by SDK authentication.
 
-	a) If user want to play game immediately, they can choose Play now function. SDK create a random UID for this device, this UID is unique ID on this device. Each device only create one UID and user still use this UID for each other play time.
-
-	b) If user has Facebook account, they can choose Login by Facebook function. SDK syncs Facebook ID from Facebook App to the game.
-
-	c) If user want to use 9Chau account, they can register and login by 9Chau login function. After that, they must create game account or choose account they created before.
+- If user want to play game immediately, they can choose Play now function. SDK create a random UID for this device, this UID is unique ID on this device. Each device only create one UID and user still use this UID for each other play time.
+- If user has Facebook account, they can choose Login by Facebook function. SDK syncs Facebook ID from Facebook App to the game.
+- If user want to use 9Chau account, they can register and login by 9Chau login function. After that, they must create game account or choose account they created before.
 
 ##### [3.2. Payment](#header1):
-	a) Telco Card Payment: User must enter completely and accurately serial code and pin code when recharging to game.
-	b) C Payment: C is money unit in 9Chau system, user can use C for recharging to game.
-	c) Google wallet: recharging by google payment service
+- Telco Card Payment: User must enter completely and accurately serial code and pin code when recharging to game.
+- C Payment: C is money unit in 9Chau system, user can use C for recharging to game.
+- Google wallet: recharging by google payment service
 
 
 
@@ -108,8 +106,8 @@ Please make sure development environment and your game meet the following requir
 
 ### [6. How to integrate SDK](#header1)
 
-#### Import 9chauSDK 
-1.	On Android Studio, select File menu -> New -> New Module -> Choose Module Type is Phone and Tablet Application, choose More Modules is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
+#####[6.1. Import 9chauSDK](#header1)
+1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
 ```java
@@ -123,14 +121,16 @@ Please make sure development environment and your game meet the following requir
     }
 ```
 
-####Config project
+#####[6.2. Config project](#header1)
+
 Add exact this meta-data into your **AndroidManifest.xml**:
 
 ```java
     <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
 ```
 
-####Add new BroadcastReceiver
+#####[6.3. Add new BroadcastReceiver](#header1)
+
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one **INSTALL_REFFERER** receiver, you must make the proxy receiver like this:
 
 - Add this receiver into your AndroidManifest.xml
@@ -160,7 +160,7 @@ An Android application cannot have multiple receivers which have the same intent
     }
 ```
 
-#### Initialize SDK
+#####[6.4. Initialize SDK](#header1)
 
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
@@ -174,7 +174,8 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 	}
 ```
 
-####Add authentication function
+#####[6.5. Add authentication function](#header1)
+
 
 	To show authentication function, add this script to your main activity, in **onCreate** method
 
@@ -225,7 +226,8 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
 
-####Add payment function
+#####[6.6. Add payment function](#header1)
+
 
 To show payment function, add this script to payment button click event:
 
@@ -262,7 +264,9 @@ To show payment function, add this script to payment button click event:
 |:---|:---|:---|
 |onSuccess| |Called after recharging success|
 
-####Add profile function
+
+#####[6.7. Add profile function](#header1)
+
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 
 **Sample code:**
