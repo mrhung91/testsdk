@@ -108,6 +108,7 @@ Please make sure development environment and your game meet the following requir
 
 #####[6.1. Import 9chauSDK](#header1)
 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
+
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
 ```java
