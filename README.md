@@ -5,11 +5,11 @@
 
 ###Contents
 
-[I. REGISTRATION](#registration)
+[I. REGISTRATION](#i-registration)
 
-[II. AUTHENTICATION](#authentication)
+[II. AUTHENTICATION](#ii-authentication)
 
-[III. PAYMENT](#payment)
+[III. PAYMENT](#iii-payment)
 
 
 ### I. REGISTRATION
