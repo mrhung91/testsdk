@@ -4,7 +4,7 @@
 
 
 
-##### Table of Contents
+#### Table of Contents
 [1. Introduction](#1-introduction)
 
 [2. Terminology](#2-terminology)
