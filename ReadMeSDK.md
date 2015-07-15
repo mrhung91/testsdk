@@ -4,7 +4,7 @@
 
 
 
-###Table of Contents
+### Table of Contents
 [1. Introduction](#a)
 
 [2. Terminology](#a)
@@ -40,33 +40,34 @@
 
 
 
-### [1. Introduction](#header1)
+### 1. Introduction
 This guide is intended to help you integrating SDK for Game. Please read this guide carefully while integrating.
 
-### [2. Terminology](#header1)
-- A 9Chau account is an account in 9Chau system.
-- A game account, user must register and login before play game.
-- A Telco is telecom company: Viettel, Vinaphone, Mobiphone, …
-    - A Telco card contain two code: serial and pin code. User must enter completely and accurately when using payment function.
-- A transaction is a game order when user recharge to a game.
-    - A transaction ID is unique order ID for each game order.
+### 2. Terminology
+-	A 9Chau account is an account in 9Chau system.
+-	A game account, user must register and login before play game.
+-	A Telco is telecom company: Viettel, Vinaphone, Mobiphone, …
+	- A Telco card contain two code: serial and pin code. User must enter completely and accurately when using payment function.
+-	A transaction is a game order when user recharge to a game.
+	- A transaction ID is unique order ID for each game order.
 
-### [3. Mind map and Functions](#header1)
+
+### 3. Mind map and Functions
 
 9Chau SKD contain tree major components: Authentication, Payment, Profile Management.
 
 
-##### [3.1. Authentication](#header1): Before playing game, user must pass by SDK authentication.
+#### 3.1. Authentication: Before playing game, user must pass by SDK authentication.
 
-- If user want to play game immediately, they can choose Play now function. SDK create a random UID for this device, this UID is unique ID on this device. Each device only create one UID and user still use this UID for each other play time.
-- If user has Facebook account, they can choose Login by Facebook function. SDK syncs Facebook ID from Facebook App to the game.
-- If user want to use 9Chau account, they can register and login by 9Chau login function. After that, they must create game account or choose account they created before.
+-	If user want to play game immediately, they can choose **Play now** function. SDK create a random UID for this device, this UID is unique ID on this device. Each device only create one UID and user still use this UID for each other play time.
+-	If user has Facebook account, they can choose **Login by Facebook** function. SDK syncs Facebook ID from Facebook App to the game.
+-	If user want to use **9Chau account**, they can register and login by 9Chau login function. After that, they must create game account or choose account they created before.
 
-##### [3.2. Payment](#header1):
+
+#### 3.2. Payment:
 - Telco Card Payment: User must enter completely and accurately serial code and pin code when recharging to game.
 - C Payment: C is money unit in 9Chau system, user can use C for recharging to game.
 - Google wallet: recharging by google payment service
-
 
 
 ![Alt text](http://i.imgur.com/L0SBnud.png "9Chau SDK Mind Map")
@@ -75,10 +76,10 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 
 
 
-### [4. Requirements](#header1)
+### 4. Requirements
 Please make sure development environment and your game meet the following requirements before integrating SDK.
 
-#####[4.1. Development Environment](#header1)
+#### 4.1. Development Environment
 - For Android development Platform Version 4.0 / API Level 14 is the minimum supported platform.
 - You also can use any Android development tool for integrating SDK. But using **Android Studio Tool** (1.2.0 is current version) is the best. 
 
@@ -89,7 +90,7 @@ Please make sure development environment and your game meet the following requir
     
 
 
-### [5. Important Notes](#header1)
+### 5. Important Notes
 
 - Only using exact SDK for each game. If using another SDK, we do not guarantee that data returns correctly.
 - Please note that the data accumulated during SDK testing is accumulated as actual measurement data.
@@ -103,9 +104,9 @@ Please make sure development environment and your game meet the following requir
     
 
 
-### [6. How to integrate SDK](#header1)
+### 6. How to integrate SDK
 
-#####[6.1. Import 9chauSDK](#header1)
+#### 6.1. Import 9chauSDK
 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 
 2.	Update your game app build.grandle by adding dependencies at bottom file:
@@ -121,7 +122,7 @@ Please make sure development environment and your game meet the following requir
     }
 ```
 
-#####[6.2. Config project](#header1)
+#### 6.2. Config project 
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
@@ -129,7 +130,7 @@ Add exact this meta-data into your **AndroidManifest.xml**:
     <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
 ```
 
-#####[6.3. Add new BroadcastReceiver](#header1)
+#### 6.3. Add new BroadcastReceiver 
 
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one **INSTALL_REFFERER** receiver, you must make the proxy receiver like this:
 
@@ -160,7 +161,7 @@ An Android application cannot have multiple receivers which have the same intent
     }
 ```
 
-#####[6.4. Initialize SDK](#header1)
+#### 6.4. Initialize SDK
 
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
@@ -174,7 +175,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 	}
 ```
 
-#####[6.5. Add authentication function](#header1)
+#### 6.5. Add authentication function
 
 
 	To show authentication function, add this script to your main activity, in **onCreate** method
@@ -202,7 +203,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
 
 
-#####Methods of AuthCallback:
+##### Methods of AuthCallback:
 
 | Methods | Parameters | Description  |
 |:--------|:---------|:-----|
@@ -212,7 +213,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
 
 
-#####User Properties:
+##### User Properties:
 |Properties | Type | Description |
 |:---|:---|:---|
 |status|String|status = 1 (successful), otherwise is not successful|
@@ -226,7 +227,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
 
-#####[6.6. Add payment function](#header1)
+#### 6.6. Add payment function
 
 
 To show payment function, add this script to payment button click event:
@@ -258,14 +259,14 @@ To show payment function, add this script to payment button click event:
     }
 ```
 
-#####PaymentCallback Methods:
+##### PaymentCallback Methods:
 
 |Methods|Parameters|Description|
 |:---|:---|:---|
 |onSuccess| |Called after recharging success|
 
 
-#####[6.7. Add profile function](#header1)
+#### 6.7. Add profile function
 
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 
