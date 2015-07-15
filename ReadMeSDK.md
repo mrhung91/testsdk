@@ -129,12 +129,20 @@ Add exact this meta-data into your **AndroidManifest.xml**:
 ```java
     <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
 ```
+**Sample code:**
+
+```java
+<application android:allowBackup="true" android:icon="@drawable/logo_9chau" android:label="@string/app_name">
+	<meta-data android:name="game_code" android:value="trieu-hoi-3d"/>
+```
 
 #### 6.3. Add new BroadcastReceiver 
 
-An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one **INSTALL_REFFERER** receiver, you must make the proxy receiver like this:
+An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
 
+- Remove all INSTALL_REFERRER receiver.
 - Add this receiver into your AndroidManifest.xml
+
     
 ```java
     <receiver
@@ -149,16 +157,16 @@ An Android application cannot have multiple receivers which have the same intent
 - Create package name is **tracking**, then create **Install.java** in this package:
     
 ```java
-    public class Install extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            com.cuuchau.sdk9chau.tracking.InstallationReceiver installationReceiver = new com.cuuchau.sdk9chau.tracking.InstallationReceiver();
-            installationReceiver.onReceive(context,intent);
-
-    		// your code here
-
-        }
-    }
+	public class Install extends BroadcastReceiver {
+	    @Override
+	    public void onReceive(Context context, Intent intent) {
+	        com.cuuchau.sdk9chau.tracking.InstallationReceiver installationReceiver = new com.cuuchau.sdk9chau.tracking.InstallationReceiver();
+	        installationReceiver.onReceive(context,intent);
+	
+	
+		// your code here
+	    }
+	}
 ```
 
 #### 6.4. Initialize SDK
@@ -170,8 +178,8 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 ```java
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// Add this line to your code
-		CuuChauSdk.sdkInitialize(this);
+	// Add this line to your code
+	    CuuChauSdk.sdkInitialize(this);
 	}
 ```
 
@@ -202,7 +210,6 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 ```
 
 
-
 ##### Methods of AuthCallback:
 
 | Methods | Parameters | Description  |
@@ -216,13 +223,13 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 ##### User Properties:
 |Properties | Type | Description |
 |:---|:---|:---|
-|status|String|status = 1 (successful), otherwise is not successful|
-|message| String |
-|username| String |
-|game_code| String |
-|token|	String |
-|error_code| String	|
-|session_key| String |
+|status|String|**status** = 1 (successful), otherwise is not successful|
+|message| String | describes **status** in detail |
+|username| String |must match with **username** 9chau server provides|
+|game_code| String |must match **game_code** 9chau server provides|
+|token|	String |must match **token** 9chau server provides|
+|error_code| String	| **must match error_code game server provides**|
+|session_key| String | **must match **session_key** game server provides**|
 
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
