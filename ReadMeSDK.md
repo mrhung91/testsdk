@@ -5,37 +5,37 @@
 
 
 ### Table of Contents
-[1. Introduction](#a)
+[1. Introduction](#1-introduction)
 
-[2. Terminology](#a)
+[2. Terminology](#2-terminology)
 
-[3. Mind map and Functions](#a)
+[3. Mind map and Functions](#3-mind-map-and-functions)
     
-[3.1. Authentication](#a)
+[3.1. Authentication](#31-authentication-before-playing-game-user-must-pass-by-sdk-authentication)
 
-[3.2. Payment](#a)
+[3.2. Payment](#32-payment)
     
-[4. Requirements](#a)
+[4. Requirements](#4-requirements)
     
-[4.1. Development Environment](#a)
+[4.1. Development Environment](#41-development-environment)
     
-[5. Important Notes](#a)
+[5. Important Notes](#5-important-notes)
 
-[6. How to integrate SDK](#a)
+[6. How to integrate SDK](#6-how-to-integrate-sdk)
 
-[6.1. Import 9chauSDK](#a)
+[6.1. Import 9chauSDK](#61-import-9chausdk)
 
-[6.2. Config project](#a)
+[6.2. Config project](#62-config-project)
 
-[6.3. Add new BroadcastReceiver](#a)
+[6.3. Add new BroadcastReceiver](#63-add-new-broadcastreceiver)
 
-[6.4. Initialize SDK](#a)
+[6.4. Initialize SDK](#64-initialize-sdk)
 
-[6.5. Add authentication function](#a)
+[6.5. Add authentication function](#65-add-authentication-function)
 
-[6.6. Add payment function](#a)
+[6.6. Add payment function](#66-add-payment-function)
 
-[6.7. Add profile function](#a)
+[6.7. Add profile function](#67-add-profile-function)
 
 
 
