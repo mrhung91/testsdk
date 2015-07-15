@@ -18,7 +18,6 @@
 
 I.1 Register sequence diagram
 
-
 In case user register a new game account (1), Game application send a registration request to SDK (1.1). After user submit, 9chau SDK send information (username, password) to 9chau server (1.1.1). 9chau server verify information and send a registration request to game server to verify (1.1.1.1).
 
 ***a) Request (1.1.1.1):***
@@ -39,7 +38,6 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 ***b) Response (1.1.1.2):***
 - Type: **json string**
 - Format result:
-
     ```java
 	[{
 		"status": "",
@@ -63,7 +61,6 @@ After verify data, game server return registration state to 9chau server (1.1.1.
     - **session_key (string)** provides by game server
 
 - Example:
-
 	```java
 	[{
 		"status": 1,
@@ -85,7 +82,7 @@ II.1 Authentication sequence diagram
 
 In case user login (1), Game application send an authentication request to SDK (1.1). After user submit login information, 9chau SDK send this information (username, password) to 9chau server (1.1.1). 9chau server verify information and send an authentication request to game server to verify (1.1.1.1).
 
-***a)	Request(1.1.1.1)::***
+***a)	Request(1.1.1.1):***
 - Send request: **9CHAU server (IP: 125.212.202.45)** 
 - Receive request: **PARTNER server**
 - URL: **https://game server_authentication_url**
@@ -155,7 +152,6 @@ After user enter card information, 9chau SDK send this payment information to 9c
 - URL: **https://game server_payment_url** 
 - Method: **POST**
 - Params:
-
 <dl>
 <dd>1. **username** (string)</dd>
 <dd>2. **user_id** (string)</dd>
@@ -194,7 +190,6 @@ After receiving the request, game server proceed that data and send a response t
 		"game_order": "", 
 	}]
     ```
-
 	-	**status** (int) = 1 is successful, otherwise is not successful
 	-	**message** (string) describes **status** in detail
 	-	**username** (string) must match **username** 9chau server provides
@@ -209,7 +204,6 @@ After receiving the request, game server proceed that data and send a response t
 	-	**game_money** (int) must match **game_money** 9chau server provides
 	-	**token** (string) must match **token** 9chau server provides
 	-	**game_order** (string) must match with **game_order** 9chau server provides
-
 
 - Example:
 	```java
