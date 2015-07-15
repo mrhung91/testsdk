@@ -27,10 +27,10 @@ In case user register a new game account (1), Game application send a registrati
 - Method: **POST**
 - Params:
 <dl>
-<dd>1. **username** (string, only a-z A-Z 0-9 and "_" character, length min 6 and max 24)</dd>
-<dd>2. **user_id** (string, only a-z 0-9 character, length is 24)</dd>
-<dd>3. **game_code** ("trieu-hoi-3d")</dd>
-<dd>4. **token** (token rule is md5(9chau_sdk_{game_code}_{username}))</dd>
+<dd>1. **username** (string): only a-z A-Z 0-9 and "_" character, length min 6 and max 24</dd>
+<dd>2. **user_id** (string): only a-z 0-9 character, length is 24</dd>
+<dd>3. **game_code** (string): ("trieu-hoi-3d")</dd>
+<dd>4. **token**: token rule is md5(9chau_sdk_{game_code}_{username})</dd>
 </dl>
 
 After verify data, game server return registration state to 9chau server (1.1.1.2):
@@ -50,14 +50,14 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 		"session_key": "",
 	}]
     ```
-    - **status (int)** = 1 (successful), otherwise is not successful
-    - **message (string)** describes **status** in detail
-    - **user_id (string)** must match with **user_id** 9chau server provides
-    - **username (string)** must match with **username** 9chau server provides
-    - **game_code (string)** must match **game_code** 9chau server provides
-    - **token (string)** must match **token** 9chau server provides
-    - **error_code (string)** provides by game server
-    - **session_key (string)** provides by game server
+    - **status** (int) = 1 (successful), otherwise is not successful
+    - **message** (string): describes **status** in detail
+    - **user_id** (string): must match with **user_id** 9chau server provides
+    - **username** (string): must match with **username** 9chau server provides
+    - **game_code** (string): must match **game_code** 9chau server provides
+    - **token** (string): must match **token** 9chau server provides
+    - **error_code** (string): provides by game server
+    - **session_key** (string): provides by game server
 
 - Example:
 	```java
@@ -88,10 +88,10 @@ In case user login (1), Game application send an authentication request to SDK (
 - Method: **POST**
 - Params:
 <dl>
-<dd>1. **username** (string, only a-z A-Z 0-9 and "_" character, length min 6 and max 24)</dd>
-<dd>2. **user_id** (string, only a-z 0-9 character, length is 24)</dd>
-<dd>3. **game_code** ("trieu-hoi-3d")</dd>
-<dd>4. **token** (token rule is md5(9chau_sdk_{game_code}_{username}))</dd>
+<dd>1. **username** (string): only a-z A-Z 0-9 and "_" character, length min 6 and max 24</dd>
+<dd>2. **user_id** (string): only a-z 0-9 character, length is 24</dd>
+<dd>3. **game_code** (string): ("trieu-hoi-3d")</dd>
+<dd>4. **token**: token rule is md5(9chau_sdk_{game_code}_{username})</dd>
 </dl>
 
 After verify data, game server return authentication state to 9chau server (1.1.1.2):
@@ -111,14 +111,14 @@ After verify data, game server return authentication state to 9chau server (1.1.
 		"session_key": "",
 	}]
     ```
-    - **status**(int) = 1 (successful), otherwise is not successful
-    - **message** (string) describes **status** in detail
-    - **user_id** (string) must match with **user_id** 9chau server provides
-    - **username** (string) must match with **username** 9chau server provides
-    - **game_code** (string) must match **game_code** 9chau server provides
-    - **token** (string) must match **token** 9chau server provides
-    - **error_code** (string) provides by game server
-    - **session_key** (string) provides by game server
+    - **status** (int) = 1 (successful), otherwise is not successful
+    - **message** (string): describes **status** in detail
+    - **user_id** (string): must match with **user_id** 9chau server provides
+    - **username** (string): must match with **username** 9chau server provides
+    - **game_code** (string): must match **game_code** 9chau server provides
+    - **token** (string): must match **token** 9chau server provides
+    - **error_code** (string): provides by game server
+    - **session_key** (string): provides by game server
 
 - Example:
 	```java
@@ -153,16 +153,16 @@ After user enter card information, 9chau SDK send this payment information to 9c
 <dl>
 <dd>1. **username** (string)</dd>
 <dd>2. **user_id** (string)</dd>
-<dd>3. **game_code** (“trieu-hoi-3d”)</dd>
-<dd>4. **trans_id** (string), transaction id</dd>
-<dd>5. **telco** (string), name of card provider</dd>
+<dd>3. **game_code** ("trieu-hoi-3d")</dd>
+<dd>4. **trans_id** (string): transaction id</dd>
+<dd>5. **telco** (string): name of card provider</dd>
 <dd>6. **serial** (string)</dd>
 <dd>7. **pincode** (string)</dd>
-<dd>8. **money** (int), amount user recharges</dd>
-<dd>9. **currency** (string), money unit (VND, USD, …)</dd>
-<dd>10. **game_money** (int), amount to be converted at the rate of money currency (VND, USD, …) and game money currency (KNB, XU, GOLD, …)</dd>
-<dd>11. **token** (string), token rule is md5(9chau_sdk_{serial}_{pincode})</dd>
-<dd>12. **game_order** (string), must match with game_order game server provides</dd>
+<dd>8. **money** (int): amount user recharges</dd>
+<dd>9. **currency** (string): money unit (VND, USD, …)</dd>
+<dd>10. **game_money** (int): amount to be converted at the rate of money currency (VND, USD, …) and game money currency (KNB, XU, GOLD, …)</dd>
+<dd>11. **token** (string): token rule is md5(9chau_sdk_{serial}_{pincode})</dd>
+<dd>12. **game_order** (string): must match with game_order game server provides</dd>
 </dl>
 
 After receiving the request, game server proceed that data and send a response to 9chau server (2.3), details as below:
@@ -189,19 +189,19 @@ After receiving the request, game server proceed that data and send a response t
 	}]
     ```
 	-	**status** (int) = 1 is successful, otherwise is not successful
-	-	**message** (string) describes **status** in detail
-	-	**username** (string) must match **username** 9chau server provides
-	-	**user_id** (string) must match **user_id** 9chau server provides
+	-	**message** (string): describes **status** in detail
+	-	**username** (string): must match **username** 9chau server provides
+	-	**user_id** (string): must match **user_id** 9chau server provides
 	-	**game_code** ("trieu-hoi-3d")
-	-	**trans_id** (string) must match **trans_id** 9chau server provides
-	-	**telco** (string) must match **telco** 9chau server provides
-	-	**serial** (string) must match **serial** 9chau server provides
-	-	**pincode** (string) must match **pincode** 9chau server provides
-	-	**money** (int) must match **money** 9chau server provides
-	-	**currency** (string) must match **currency** 9chau server provides
-	-	**game_money** (int) must match **game_money** 9chau server provides
-	-	**token** (string) must match **token** 9chau server provides
-	-	**game_order** (string) must match with **game_order** 9chau server provides
+	-	**trans_id** (string): must match **trans_id** 9chau server provides
+	-	**telco** (string): must match **telco** 9chau server provides
+	-	**serial** (string): must match **serial** 9chau server provides
+	-	**pincode** (string): must match **pincode** 9chau server provides
+	-	**money** (int): must match **money** 9chau server provides
+	-	**currency** (string): must match **currency** 9chau server provides
+	-	**game_money** (int): must match **game_money** 9chau server provides
+	-	**token** (string): must match **token** 9chau server provides
+	-	**game_order** (string): must match with **game_order** 9chau server provides
 
 - Example:
 	```java
