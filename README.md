@@ -16,7 +16,7 @@
 
 ![Alt text](http://i.imgur.com/Yno6fyO.png "I.1 Register sequence diagram")
 
-I.1 Register sequence diagram
+*I.1 Register sequence diagram*
 
 In case user register a new game account (1), Game application send a registration request to SDK (1.1). After user submit, 9chau SDK send information (username, password) to 9chau server (1.1.1). 9chau server verify information and send a registration request to game server to verify (1.1.1.1).
 
@@ -50,7 +50,6 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 		"session_key": "",
 	}]
     ```
-
     - **status (int)** = 1 (successful), otherwise is not successful
     - **message (string)** describes **status** in detail
     - **user_id (string)** must match with **user_id** 9chau server provides
@@ -78,7 +77,7 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 
 ![Alt text](http://i.imgur.com/6puCuRq.png "II.1 Authentication sequence diagram")
 
-II.1 Authentication sequence diagram
+*II.1 Authentication sequence diagram*
 
 In case user login (1), Game application send an authentication request to SDK (1.1). After user submit login information, 9chau SDK send this information (username, password) to 9chau server (1.1.1). 9chau server verify information and send an authentication request to game server to verify (1.1.1.1).
 
@@ -112,7 +111,6 @@ After verify data, game server return authentication state to 9chau server (1.1.
 		"session_key": "",
 	}]
     ```
-
     - **status**(int) = 1 (successful), otherwise is not successful
     - **message** (string) describes **status** in detail
     - **user_id** (string) must match with **user_id** 9chau server provides
@@ -140,7 +138,7 @@ After verify data, game server return authentication state to 9chau server (1.1.
 
 ![Alt text](http://i.imgur.com/AiROiPl.png "III.1 Payment sequence diagram")
 
-III.1 Payment sequence diagram
+*III.1 Payment sequence diagram*
 
 When user request to recharge (1), Game application call to 9Chau SDK with game_order parameter (1.1).
 
