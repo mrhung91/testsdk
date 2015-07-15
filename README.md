@@ -4,14 +4,15 @@
 
 
 ###Contents
-[I. Register](#1-register)
 
-[II. Authentication](#2-authentication)
+[I. REGISTRATION](#registration)
 
-[III. Payment](#3-payment)
+[II. AUTHENTICATION](#authentication)
+
+[III. PAYMENT](#payment)
 
 
-### [I. REGISTER](#header1)
+### [I. REGISTRATION](#registration)
 
 ![Alt text](http://i.imgur.com/Yno6fyO.png "I.1 Register sequence diagram")
 
@@ -59,7 +60,7 @@ After verify data, game server send a response to 9chau server (1.1.2):
     - **session_key** (create from game server)
 
 
-### [II. AUTHENTICATION](#header2)
+### [II. AUTHENTICATION](#authentication)
 
 ![Alt text](http://i.imgur.com/6puCuRq.png "II.1 Authentication sequence diagram")
 
@@ -109,7 +110,7 @@ When received the request, game server proceed received data. If allow user to l
 After receiving the response from partner server, 9chau server will compare data that 9chau server sent and that game server sent. If match, 9chau server response to 9chau SDK and 9chau SDK will allow user to login.
 
 
-###[III. PAYMENT](#header3)
+###[III. PAYMENT](#payment)
 
 ![Alt text](http://i.imgur.com/AiROiPl.png "III.1 Payment sequence diagram")
 
