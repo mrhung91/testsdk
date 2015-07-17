@@ -127,13 +127,13 @@ Please make sure development environment and your game meet the following requir
 Add exact this meta-data into your **AndroidManifest.xml**:
 
 ```java
-    <meta-data android:name="game_code" android:value="trieu-hoi-3d" />
+    <meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}" />
 ```
 **Sample code:**
 
 ```java
 <application android:allowBackup="true" android:icon="@drawable/logo_9chau" android:label="@string/app_name">
-	<meta-data android:name="game_code" android:value="trieu-hoi-3d"/>
+	<meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}"/>
 ```
 
 #### 6.3. Add new BroadcastReceiver 
@@ -228,8 +228,8 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 |username| String |must match with **username** 9chau server provides|
 |game_code| String |must match **game_code** 9chau server provides|
 |token|	String |must match **token** 9chau server provides|
-|error_code| String	| **must match error_code game server provides**|
-|session_key| String | **must match **session_key** game server provides**|
+|error_code| String	| must match **error_code** game server provides|
+|session_key| String | must match **session_key** game server provides|
 
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
