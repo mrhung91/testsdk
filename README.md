@@ -29,7 +29,7 @@ In case user register a new game account (1), Game application send a registrati
 <dl>
 <dd>1. **username** (string): only a-z A-Z 0-9 and "_" character, length min 6 and max 24</dd>
 <dd>2. **user_id** (string): only a-z 0-9 character, length is 24</dd>
-<dd>3. **game_code** (string): ("trieu-hoi-3d")</dd>
+<dd>3. **game_code** (string): ("{YOUR_GAME_CODE}")</dd>
 <dd>4. **token**: token rule is md5(9chau_sdk_{game_code}_{username})</dd>
 </dl>
 
@@ -66,7 +66,7 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 		"message": "success",
 		"user_id": "55823d606803fa5b8a0cd402",
 		"username": "cuongphong",
-		"game_code": "trieu-hoi-3d",
+		"game_code": "{YOUR_GAME_CODE}",
 		"token": "4jh328dsj21m8782300139ab",
 		"error_code": "",
 		"session_key": "",
@@ -90,7 +90,7 @@ In case user login (1), Game application send an authentication request to SDK (
 <dl>
 <dd>1. **username** (string): only a-z A-Z 0-9 and "_" character, length min 6 and max 24</dd>
 <dd>2. **user_id** (string): only a-z 0-9 character, length is 24</dd>
-<dd>3. **game_code** (string): ("trieu-hoi-3d")</dd>
+<dd>3. **game_code** (string): ("{YOUR_GAME_CODE}")</dd>
 <dd>4. **token**: token rule is md5(9chau_sdk_{game_code}_{username})</dd>
 </dl>
 
@@ -127,7 +127,7 @@ After verify data, game server return authentication state to 9chau server (1.1.
 		"message": "success",
 		"user_id": "55823d606803fa5b8a0cd402",
 		"username": "cuongphong",
-		"game_code": "trieu-hoi-3d",
+		"game_code": "{YOUR_GAME_CODE}",
 		"token": "4jh328dsj21m8782300139ab",
 		"error_code": "",
 		"session_key": "",
@@ -153,7 +153,7 @@ After user enter card information, 9chau SDK send this payment information to 9c
 <dl>
 <dd>1. **username** (string)</dd>
 <dd>2. **user_id** (string)</dd>
-<dd>3. **game_code** ("trieu-hoi-3d")</dd>
+<dd>3. **game_code** ("{YOUR_GAME_CODE}")</dd>
 <dd>4. **trans_id** (string): transaction id</dd>
 <dd>5. **telco** (string): name of card provider</dd>
 <dd>6. **serial** (string)</dd>
@@ -192,7 +192,7 @@ After receiving the request, game server proceed that data and send a response t
 	-	**message** (string): describes **status** in detail
 	-	**username** (string): must match **username** 9chau server provides
 	-	**user_id** (string): must match **user_id** 9chau server provides
-	-	**game_code** ("trieu-hoi-3d")
+	-	**game_code** ("{YOUR_GAME_CODE}")
 	-	**trans_id** (string): must match **trans_id** 9chau server provides
 	-	**telco** (string): must match **telco** 9chau server provides
 	-	**serial** (string): must match **serial** 9chau server provides
@@ -210,7 +210,7 @@ After receiving the request, game server proceed that data and send a response t
 		"message": "success",
 		"username": "cuongphong",
 		"user_id": "55823d606803fa5b8a0cd402",
-		"game_code": "trieu-hoi-3d",
+		"game_code": "{YOUR_GAME_CODE}",
 		"trans_id": "558215e66803fa578a0cd405",
 		"telco ": "VTE",
 		"serial": "1234567891234",
