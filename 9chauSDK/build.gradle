@@ -1,0 +1,3 @@
+configurations.create("default")
+//artifacts.add("default", file('9chauSDK_20150619.aar'))
+artifacts.add("default", file('9chauSDK.aar'))
